@@ -29,7 +29,16 @@ class ReplaceMedia
 		$path = dirname($current_path);
 		unlink($current_path);
 		move_uploaded_file($file['tmp_name'], $current_path);
+		$this->regeneratePdfThumbnail($original_id, $current_path);
 		$this->success();
+	}
+
+	private function regeneratePdfThumbnail($id, $path)
+	{
+		$type = get_post_mime_type($id);
+		if ( $type !== 'application/pdf' ) return;
+		$new_meta = wp_generate_attachment_metadata($id, $path);
+		wp_update_attachment_metadata($id, $new_meta);
 	}
 
 	private function success()

@@ -28,7 +28,7 @@
 			</div>
 			<?php endif; ?>
 			<div class="file-input">
-				<p class="instructions"><?php echo _('The uploaded file type must match the file to be replaced', 'replace-media') . ' (' . strtoupper($type[1]) . ')'; ?></p>
+				<p class="instructions"><?php echo __('The uploaded file type must match the file to be replaced', 'replace-media') . ' (' . strtoupper($type[1]) . ')'; ?></p>
 				<input type="file" name="file">
 			</div>
 			<p><button class="button button-primary"><?php echo __('Replace', 'replace-media') . ' ' . $type[0]; ?></button></p>
