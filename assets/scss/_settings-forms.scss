@@ -1,0 +1,25 @@
+//
+// Form Settings
+// --------------------------------------------------
+.replace-media-form {
+	background-color: $white;
+	padding: 1em;
+	border: $border;
+	margin-top: 1em;
+	.warning-message {
+		background-color: rgba(#000, .05);
+		padding: 1em;
+		margin-bottom: 1em;
+		h3 {
+			margin: 0 0 .5em 0;
+		}
+		p {
+			margin: 0;
+		}
+	} // .warning-message
+	.form-error {
+		border: $border;
+		border-left: 4px solid $red;
+		padding: 1em;
+	}
+} // .replace-media-form
