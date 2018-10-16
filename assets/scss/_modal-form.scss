@@ -1,0 +1,22 @@
+//
+// Modal Replacement Form
+// --------------------------------------------------
+.replace-media-modal-form {
+	padding: 2em;
+	padding-top: 1em;
+	.replace-media-form {
+		border: 0;
+		padding: 0;
+	}
+	.loading-icon {
+		display: none;
+		width: 40px;
+		height: 40px;
+		margin-left: 10px;
+	}
+	.replace-media-form.loading {
+		.loading-icon {
+			display: inline-block;
+		}
+	}
+}

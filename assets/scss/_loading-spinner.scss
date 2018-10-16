@@ -1,0 +1,23 @@
+//
+// Loading States
+// --------------------------------------------------
+.icon-replace-media-spinner {
+	animation: replaceMediaRotate linear 1.5s infinite;
+	position: absolute;
+	line-height: .1;
+}
+
+@keyframes replaceMediaRotate {
+	0% {
+		transform: rotate(0deg);
+		transform-origin: center center;
+	}
+	50% {
+		transform: rotate(180deg);
+		transform-origin: center center;
+	}
+	100% {
+		transform: rotate(360deg);
+		transform-origin: center center;
+	}
+}

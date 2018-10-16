@@ -13,7 +13,6 @@ class Validation
 
 	public function hasFile()
 	{
-		if ( !isset($_GET['action']) && $_GET['action'] !== 'replace_media' ) return false;
 		if ( !isset($_GET['attachment_id']) && !is_numeric($_GET['attachment_id']) ) return false;
 		return true;
 	}
@@ -21,19 +20,25 @@ class Validation
 	/**
 	* Validation for replace media form
 	*/
-	public function replacementValidates($request)
+	public function replacementValidates($request, $ajax = false)
 	{
-		if ( !isset($request['original_attachment_id']) ) return $this->redirect(1, $request);
-		if ( !isset($_FILES['file']) || $_FILES['file']['name'] == '' ) return $this->redirect(2, $request);
-		if ( !isset($_FILES['file']['type']) || !$this->matchesMimeType($request['original_attachment_id'], $_FILES['file']['type']) ) return $this->redirect(3, $request);
+		if ( !isset($request['original_attachment_id']) ) return $this->redirect(1, $request, $ajax);
+		if ( !isset($_FILES['file']) || $_FILES['file']['name'] == '' ) return $this->redirect(2, $request, $ajax);
+		if ( !isset($_FILES['file']['type']) || !$this->matchesMimeType($request['original_attachment_id'], $_FILES['file']['type']) ) return $this->redirect(3, $request, $ajax);
 		return true;
 	}
 
 	/**
 	* Redirect with error
 	*/
-	private function redirect($error, $request)
+	private function redirect($error, $request, $ajax = false)
 	{
+		if ( $ajax ){
+			return wp_send_json([
+				'status' => 'error',
+				'error' => $this->getError($error)
+			]);
+		}
 		$url = 'upload.php?page=replace-media&action=replace_media&replace_error=' . $error;
 		if ( isset($request['original_attachment_id']) ) $url .= '&attachment_id=' . $request['original_attachment_id'];
 		header('Location:' . $url);

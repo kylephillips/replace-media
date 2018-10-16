@@ -29,7 +29,7 @@ class FormFields
 		$form_fields['replace-media'] = [
 			'label' => __('Replace', "replace-media") . ' ' . strtoupper($type[1]), 
 			'input' => 'html', 
-			'html' => '<p><a class="button-secondary" href="' . $url . '">' . __('Replace this', 'replace-media') . ' ' . $type[0] . '</a></p>'
+			'html' => '<p><a class="button-secondary" href="' . $url . '" data-replace-media-modal-button data-attachment-id="' . $post->ID . '">' . __('Replace this', 'replace-media') . ' ' . $type[0] . '</a></p>'
 		];
 		return $form_fields;
 	}

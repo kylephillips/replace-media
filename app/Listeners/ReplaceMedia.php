@@ -13,10 +13,17 @@ class ReplaceMedia
 	*/
 	private $validator;
 
-	public function __construct()
+	/**
+	* Ajax Request
+	* @var bool
+	*/
+	private $ajax;
+
+	public function __construct($ajax = false)
 	{
+		$this->ajax = $ajax;
 		$this->validator = new Validation;
-		if ( !$this->validator->replacementValidates($_POST) ) return;
+		if ( !$this->ajax && !$this->validator->replacementValidates($_POST) ) return;
 		$this->replaceFile();
 	}
 
@@ -43,6 +50,7 @@ class ReplaceMedia
 
 	private function success()
 	{
+		if ( $ajax ) return;
 		$url = 'upload.php?page=replace-media&action=replace_media&success=true';
 		header('Location:' . $url);
 	}

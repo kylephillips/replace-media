@@ -14,6 +14,8 @@ var css = 'assets/css/';
 
 // JS Paths
 var js_source = [
+	'assets/js/src/replacemedia.modal-html.js',
+	'assets/js/src/replacemedia.modal-form.js',
 	'assets/js/src/replacemedia.factory.js'
 ];
 var js_compiled = 'assets/js/';

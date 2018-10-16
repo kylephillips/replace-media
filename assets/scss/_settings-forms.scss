@@ -16,10 +16,28 @@
 		p {
 			margin: 0;
 		}
+		p.instructions {
+			margin-top: 1em;
+		}
 	} // .warning-message
+	.file-title {
+		border: $border;
+		padding: .5em;
+		border-left: 3px solid $blue;
+	}
 	.form-error {
 		border: $border;
 		border-left: 4px solid $red;
 		padding: 1em;
+		margin-bottom: 1em;
+	}
+	.form-success {
+		border: $border;
+		border-left: 4px solid $green;
+		padding: 1em;
+		margin-bottom: 1em;
+	}
+	.submit-buttons {
+		padding-top: 2em;
 	}
 } // .replace-media-form

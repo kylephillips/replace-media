@@ -36,6 +36,13 @@ class Dependencies
 			['jquery'], 
 			$this->version
 		);
+		wp_localize_script(
+			'replace-media',
+			'replace_media',
+			[
+				'replace_attachment' => __('Replace Attachment', 'replace-media')
+			]
+		);
 	}
 
 	/**

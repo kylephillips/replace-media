@@ -18,14 +18,8 @@ ReplaceMedia.Factory = function()
 
 	self.build = function()
 	{
-		self.bindEvents();
-	}
-
-	self.bindEvents = function()
-	{
-		$(document).ready(function(){
-			
-		});
+		new ReplaceMedia.ModalHtml;
+		new ReplaceMedia.ModalForm;
 	}
 
 	return self.build();

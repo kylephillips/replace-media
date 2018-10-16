@@ -22,4 +22,22 @@ class MediaAttributes
 		$type[0] = ucfirst($type[0]);
 		return $type;
 	}
+
+	/**
+	* Get the file name
+	* @param int $attachment_id
+	* @return array
+	*/
+	public function fileName($attachment_id)
+	{
+		return basename(get_attached_file($attachment_id));
+	}
+
+	/**
+	* Get the link to the file
+	*/
+	public function fileLink($attachment_id)
+	{
+		return wp_get_attachment_url($attachment_id);
+	}
 }

@@ -22,7 +22,7 @@ class Bootstrap
 		$replace_media_plugin_directory = plugins_url() . '/' . basename(dirname(dirname(__FILE__)));
 
 		global $replace_media_version;
-		$replace_media_version = '1.0.0';
+		$replace_media_version = '1.0.1';
 	}
 
 	/**
