@@ -21,8 +21,9 @@ class Dependencies
 	private function setVersion()
 	{
 		global $replace_media_plugin_directory;
+		global $replace_media_version;
 		$this->plugin_dir = $replace_media_plugin_directory;
-		$this->version = $replace_media_plugin_directory;
+		$this->version = $replace_media_version;
 	}
 
 	/**
