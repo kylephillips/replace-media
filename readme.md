@@ -16,3 +16,13 @@ Replacing files will **completely** override existing files. Make backups accord
 
 #### Media Support
 Images are not currently supported. This plugin is currently primarily geared for replacement of PDFs, Word Documents, Excel Documents, Text Documents, and other non-image file types.
+
+#### Usage
+Within the media library or attachment modal, a "Replacement" button will be added to non-image attachments. Click the button to load the replacement form.
+
+![Screenshot](https://raw.githubusercontent.com/kylephillips/replace-media/master/screenshots/screenshot-1.png)
+
+Upload the replacement document and click the "Replace" button. Selecting "Cancel Replacement" will close the form and return to the default attachment details screen.
+
+**Note:** Replacement files must match the same type as the original file type. A PDF must be replaced by another PDF, etc…
+![Screenshot](https://raw.githubusercontent.com/kylephillips/replace-media/master/screenshots/screenshot-1.png)
