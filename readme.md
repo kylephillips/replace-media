@@ -25,4 +25,5 @@ Within the media library or attachment modal, a "Replacement" button will be add
 Upload the replacement document and click the "Replace" button. Selecting "Cancel Replacement" will close the form and return to the default attachment details screen.
 
 **Note:** Replacement files must match the same type as the original file type. A PDF must be replaced by another PDF, etc…
-![Screenshot](https://raw.githubusercontent.com/kylephillips/replace-media/master/screenshots/screenshot-1.png)
+
+![Screenshot](https://raw.githubusercontent.com/kylephillips/replace-media/master/screenshots/screenshot-2.png)
