@@ -2,6 +2,7 @@
 namespace ReplaceMedia\Listeners;
 
 use ReplaceMedia\Services\Validation;
+use ReplaceMedia\Services\RedirectSave;
 
 /**
 * Handle the media replacement form
@@ -19,24 +20,37 @@ class ReplaceMedia
 	*/
 	private $ajax;
 
+	/**
+	* Redirect Save
+	* @var obj
+	*/
+	private $redirect;
+
 	public function __construct($ajax = false)
 	{
 		$this->ajax = $ajax;
 		$this->validator = new Validation;
+		$this->redirect = new RedirectSave;
 		if ( !$this->ajax && !$this->validator->replacementValidates($_POST) ) return;
 		$this->replaceFile();
 	}
 
 	private function replaceFile()
 	{
-		$original_id = $_POST['original_attachment_id'];
+		$rename = ( isset($_POST['no_rename']) && $_POST['no_rename'] == '1' ) ? false : true;
+		$original_id = intval($_POST['original_attachment_id']);
 		$file = $_FILES['file'];
+		
 		$current_path = get_attached_file($original_id);
-		$filename = basename($current_path);
-		$path = dirname($current_path);
+		$filename = ( $rename ) ? basename($current_path) : $file['name'];
+		$new_path = ( $rename ) ? $current_path : dirname($current_path) . '/' . $file['name'];
+
+		if ( !$rename ) $this->redirect->save($original_id, $filename);
+
 		unlink($current_path);
-		move_uploaded_file($file['tmp_name'], $current_path);
-		$this->regeneratePdfThumbnail($original_id, $current_path);
+		move_uploaded_file($file['tmp_name'], $new_path);
+		
+		$this->regeneratePdfThumbnail($original_id, $new_path);
 		$this->success();
 	}
 

@@ -49,7 +49,14 @@
 				<div class="form-error" data-replace-media-form-error style="display:none;"></div>
 				<?php endif; ?>
 
-				<input type="file" name="file">
+				<div class="file-field">
+					<input type="file" name="file">
+				</div>
+
+				<div class="rename">
+					<p><label><input type="checkbox" name="no_rename" value="1" /><?php _e('Do not rename uploaded file', 'replace-media'); ?></label></p>
+					<p class="description"><?php _e('If this option is selected, all instances of the link will be updated with the new file name. A redirect will be saved for inbound links to point to the new file.', 'replace-media'); ?></p>
+				</div>
 			</div>
 
 			<div class="submit-buttons">

@@ -40,4 +40,17 @@
 	.submit-buttons {
 		padding-top: 2em;
 	}
+	.rename {
+		border: 1px solid rgba(#000, .1);
+		padding: 1em;
+		margin-top: 2em;
+		p {
+			margin: 0;
+		}
+		label {
+			display: block;
+			margin-bottom: .5em;
+			font-weight: bold;
+		}
+	}
 } // .replace-media-form

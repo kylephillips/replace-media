@@ -10,7 +10,6 @@ class Bootstrap
 	{
 		$this->defineGlobals();
 		$this->pluginInit();
-		add_action( 'init', [$this, 'init']);
 	}
 
 	/**
@@ -31,20 +30,12 @@ class Bootstrap
 	public function pluginInit()
 	{
 		$this->addLocalization();
+		new Migrations\Activation;
 		new Activation\Dependencies;
 		new Events\RegisterAdminEvents;
 		new Entities\MediaLibrary\FormFields;
 		new Entities\Media\ReplacementView;
 	}
-
-	/**
-	* WordPress Initialized Action
-	*/
-	public function init()
-	{
-
-	}
-
 
 	/**
 	* Localization Domain
