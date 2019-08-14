@@ -35,6 +35,7 @@ class Bootstrap
 		new Events\RegisterAdminEvents;
 		new Entities\MediaLibrary\FormFields;
 		new Entities\Media\ReplacementView;
+		new Entities\Redirect\Redirect;
 	}
 
 	/**

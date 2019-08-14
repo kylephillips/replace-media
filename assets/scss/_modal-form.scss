@@ -19,4 +19,16 @@
 			display: inline-block;
 		}
 	}
+	.attached-posts {
+		background-color: darken($white, 6%);
+		padding: .5em;
+		margin-bottom: 1em;
+		p {
+			margin: 0;
+		}
+		ul {
+			@include unstyled;
+			padding-top: .5em;
+		}
+	}
 }

@@ -45,7 +45,6 @@ ReplaceMedia.ModalForm = function()
             cache: false,
             timeout: 600000,
 			success : function(data){
-				console.log(data);
 				self.toggleLoading(false);
 				if ( data.status === 'error' ) return self.toggleError(data.error);
 				self.toggleSuccess(true);

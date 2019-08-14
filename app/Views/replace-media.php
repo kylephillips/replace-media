@@ -49,12 +49,27 @@
 				<div class="form-error" data-replace-media-form-error style="display:none;"></div>
 				<?php endif; ?>
 
+				<div class="attached-posts">
+				<?php if ( !empty($this->posts) ) : ?>
+					<p><?php _e('This file is being used in the following posts:', 'replace-media'); ?></p>
+					<ul>
+						<?php 
+						foreach ( $this->posts as $post_id => $post_title ) : 
+							echo '<li><a href="' . get_the_permalink($post_id) . '">' . $post_title . '</a> (<a href="' . get_edit_post_link($post_id) . '">' . __('Edit', 'replace-media') . '</a>)</li>';
+						endforeach;
+						?>
+					</ul>
+				<?php else : ?>
+					<p><?php _e('This file is not attached to any current posts.', 'replace-media'); ?></p>
+				<?php endif; ?>
+				</div>
+
 				<div class="file-field">
 					<input type="file" name="file">
 				</div>
 
 				<div class="rename">
-					<p><label><input type="checkbox" name="no_rename" value="1" /><?php _e('Do not rename uploaded file', 'replace-media'); ?></label></p>
+					<p><label><input type="checkbox" name="no_rename" value="1" /><?php _e('Do not rename file', 'replace-media'); ?></label></p>
 					<p class="description"><?php _e('If this option is selected, all instances of the link will be updated with the new file name. A redirect will be saved for inbound links to point to the new file.', 'replace-media'); ?></p>
 				</div>
 			</div>
