@@ -29,7 +29,8 @@ class CreateTables
 				source MEDIUMTEXT,
 				destination MEDIUMTEXT,
 				user_id INTEGER(10),
-				PRIMARY KEY  (id) )';
+				PRIMARY KEY  (id) ) 
+				CHARACTER SET utf8;';
 			require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
 			dbDelta($sql);
 			update_option('replace_media_redirects_table_installed', true);
